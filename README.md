@@ -1,7 +1,7 @@
 # single-spa.js.org
-[![CircleCI](https://circleci.com/gh/single-spa/single-spa.js.org.svg?style=svg)](https://circleci.com/gh/single-spa/single-spa.js.org)
+[![CircleCI](https://circleci.com/gh/single-spa/ru.single-spa.js.org.svg?style=svg)](https://circleci.com/gh/single-spa/ru.single-spa.js.org)
 
-This repo contains the source code and documentation powering [single-spa.js.org](https://single-spa.js.org).
+This repo contains the source code and documentation powering [ru.single-spa.js.org](https://ru.single-spa.js.org).
 
 ## Getting started
 
@@ -11,7 +11,7 @@ This repo contains the source code and documentation powering [single-spa.js.org
 1. Node: install version 8.4 or greater
 1. Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
 1. A fork of the repo (for any contributions)
-1. A clone of the [single-spa.js.org repo](https://github.com/single-spa/single-spa.js.org) on your local machine
+1. A clone of the [ru.single-spa.js.org repo](https://github.com/single-spa/ru.single-spa.js.org) on your local machine
 
 ### Installation
 
@@ -30,7 +30,7 @@ Want to help improve the `single-spa.js.org` website? Checkout the steps below t
 
 ### Create a branch
 
-1. `git checkout master` from any folder in your local `single-spa.js.org` repository
+1. `git checkout master` from any folder in your local `ru.single-spa.js.org` repository
 1. `git pull origin master` to ensure you have the latest main code
 1. `git checkout -b the-name-of-my-branch` (replacing `the-name-of-my-branch` with a suitable name) to create a branch
 
@@ -49,6 +49,6 @@ Want to help improve the `single-spa.js.org` website? Checkout the steps below t
 
 1. `git add . && git commit -m "My message"` (replacing `My message` with a commit message, such as `Fixed header logo`) to stage and commit your changes
 1. `git push my-fork-name the-name-of-my-branch`
-1. Go to the [single-spa.js.org repo](https://github.com/single-spa/single-spa.js.org) and you should see recently pushed branches.
+1. Go to the [ru.single-spa.js.org repo](https://github.com/single-spa/ru.single-spa.js.org) and you should see recently pushed branches.
 1. Follow GitHub's instructions.
 1. If possible, include screenshots of visual changes.
