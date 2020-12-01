@@ -1,164 +1,165 @@
 ---
 id: getting-started-overview
-title: Getting Started with single-spa
-sidebar_label: Overview of single-spa
+title: Начинаем знакомство с single-spa
+sidebar_label: Обзор single-spa
 ---
 
-## JavaScript Microfrontends
+## JavaScript микрофронтенды
 
-[Join the chat on Slack](https://join.slack.com/t/single-spa/shared_invite/zt-j4c38g92-JmV7O~35dkN1CnaBkK7NTw)
+[Присоединяйтесь к чату в Slack](https://join.slack.com/t/single-spa/shared_invite/zt-j4c38g92-JmV7O~35dkN1CnaBkK7NTw)
 
-single-spa is a framework for bringing together multiple JavaScript microfrontends in a frontend application. Architecting your frontend using single-spa enables many benefits, such as:
+single-spa это фреймворк, который объединяет несколько Javascript микрофронтендов в одно фронтенд приложение. Архитектура вашего приложения с использованием single-spa имеет множество преимуществ, таких как:
+- [Использование нескольких фреймворков](ecosystem.md#help-for-frameworks) на одной странице [бех обновления страницы](building-applications.md)
+  ([React](ecosystem-react.md), [AngularJS](ecosystem-angularjs.md), [Angular](ecosystem-angular.md), [Ember](ecosystem-ember.md), или что угодно, что вы используете)
+- Разворачивание ваших микрофронтендов независимо друг от друга
+- Пишите код, используя новый фреймворк, без переписывания существующего приложения
+- Ленивая загрузка кода для улучшения времени начальной загрузки
 
-- [Use multiple frameworks](ecosystem.md#help-for-frameworks) on the same page [without page refreshing](building-applications.md)
-  ([React](ecosystem-react.md), [AngularJS](ecosystem-angularjs.md), [Angular](ecosystem-angular.md), [Ember](ecosystem-ember.md), or whatever you're using)
-- Deploy your microfrontends independently
-- Write code using a new framework, without rewriting your existing app
-- Lazy load code for improved initial load time
+## Демо и примеры
 
-## Demos and Examples
+Смотреть [страницу с примерами](/docs/examples).
 
-See [our examples page](/docs/examples).
+## Обзор архитектуры
 
-## Architectural Overview
+Single-spa вдохновляется жизненным циклом компонентов современных фреймворков, абстрагируя жизненные циклы для целых приложений.
+Рожденный из желания Canopy использовать React + react-router вместо того, чтобы навечно застрять с приложением на AngularJS + ui-router, single-spa стал зрелой библиотекой, которая позволяет использовать микросервисную архитектуру на фронтенде, известную как "микрофронтенды".
+Микрофронтенды имеют множество преимуществ, таких как: независимое разворачивание, миграция и возможность экспериментирования, а также устойчивость приложений.
 
-single-spa takes inspiration from modern framework component lifecycles by abstracting lifecycles for entire applications.
-Born out of Canopy's desire to use React + react-router instead of being forever stuck with our AngularJS + ui-router application, single-spa is now a mature library that enables frontend microservices architecture aka "microfrontends". Microfrontends enable many benefits such as independent deployments, migration and experimentation, and resilient applications.
+single-spa приложения состоят из следующих частей:
 
-single-spa apps consist of the following:
+1. [Корневая конфигурация single-spa](configuration), которая рендерит HTML страницу, _и_ Javascript, который регистрирует приложения. Каждое приложение регистрируется с тремя вещами:
+   - Имя
+   - Функция для загрузки кода приложения
+   - Функция, определяющая, когда приложение активно/неактивно.
+2. [Приложения](building-applications.md) которые можно рассматривать, как single-spa приложения упакованные в модули. Каждое приложение должно знать, как загрузиться, смонтировать и размонтировать себя из DOM. Главное отличие между традиционными SPA и single-spa приложениями в том, что они должны иметь возможность существовать с другими приложениями, поскольку у каждого из них нет собственной HTML страницы.
 
-1. A [single-spa root config](configuration), which renders the HTML page _and_ the JavaScript that registers applications. Each application is registered with three things:
-   - A name
-   - A function to load the application's code
-   - A function that determines when the application is active/inactive
-1. [Applications](building-applications.md) which can be thought of as single-page applications packaged up into modules. Each application must know how to bootstrap, mount, and unmount itself from the DOM. The main difference between a traditional SPA and single-spa applications is that they must be able to coexist with other applications as they do not each have their own HTML page.
+   Для примера, ваше React или Angular SPA приложения.
+   Когда они активны, они могут прослушивать события маршрутизации url-адресов и помещать контент в DOM. Когда они неактивны, они не прослушивают события маршрутизации url-адресов и полностью удаляются из DOM.
 
-   For example, your React or Angular SPAs are applications. When active, they can listen to url routing events and put content on the DOM. When inactive, they do not listen to url routing events and are totally removed from the DOM.
+## Рекомендации по установке
 
-## The Recommended Setup
+Основная команда single-spa собрала документацию, инструменты и видео, демонстрирующие рекомендуемые в настоящее время лучшие практики работы с single-spa. Для получения дополнительной информации ознакомьтесь с [этими документами](/docs/recommended-setup/).
 
-The single-spa core team has put together documentation, tools, and videos showing the currently encouraged best practices with single-spa. Check out [these docs](/docs/recommended-setup/) for more information.
+## Насколько сложно будет использовать single-spa?
 
-## How hard will it be to use single-spa?
+Single-spa работает с ES5, ES6+, TypeScript, Webpack, System JS, Gulp, Grunt, Bower, ember-cli или любой доступной системой сборки. Вы можете установить его через npm или даже просто использовать тег `<script>`, если хотите.
 
-single-spa works with ES5, ES6+, TypeScript, Webpack, SystemJS, Gulp, Grunt, Bower, ember-cli, or really any build system available. You can npm install it or even just use a `<script>` tag if you prefer.
+Хотя наша цель состоит в том, чтобы сделать использование single-spa максимально простым, мы также должны отметить, что это _расширенная архитектура_, которая отличается от того, как обычно пишутся фронтенд приложения. Это потребует изменения существующих парадигм, а также понимания лежащих в их основе инструментов.
 
-While our objective is to make using single-spa as easy as possible, we should also note that this is an _advanced architecture_ that is different from how front-end applications are typically done. This will require changes to existing paradigms as well as understanding of underlying tools.
+Если вы не начинаете свое приложение с нуля, вам придется [изменить ваше одностраничное приложение](migrating-existing-spas.md) чтобы стать single-spa приложением.
 
-If you're not starting your application from scratch, you'll have to [migrate your SPA](migrating-existing-spas.md) to become a single-spa application.
+Single-spa работает в Chrome, Firefox, Safari, Edge, и IE11 (с полифилами).
 
-single-spa works in Chrome, Firefox, Safari, Edge, and IE11 (with polyfills).
+## single-spa своего рода избыточное имя?
 
-## Isn't single-spa sort of a redundant name?
+Да.
 
-Yep.
+## Документация
 
-## Documentation
+Документация разбита по нескольким секциям:
 
-The documentation is divided into several sections:
-
-- [Getting Started](getting-started-overview.md)
-- [single-spa Applications](building-applications.md)
+- [Начинаем знакомство](getting-started-overview.md)
+- [single-spa Приложения](building-applications.md)
 - [single-spa Parcels](parcels-overview.md)
-- [Examples](examples.md)
-- [Ecosystem](ecosystem.md)
+- [Примеры](examples.md)
+- [Экосистема](ecosystem.md)
 - [Contributing Guide](contributing-overview.md)
-- [Blog](https://single-spa.js.org/blog/)
-- [Where to Get Support](https://single-spa.js.org/help/)
+- [Блог](https://single-spa.js.org/blog/)
+- [Где найти поддержку](https://single-spa.js.org/help/)
 
-You can help improve the single-spa website by sending pull requests to the [`single-spa.js.org` repository](https://github.com/single-spa/single-spa.js.org).
+Вы можете улучшить этот сайт по single-spa, отправив pull реквесты в [`single-spa.js.org` репозиторий](https://github.com/single-spa/single-spa.js.org).
 
-## Quick start
+## Быстрый старт
 
-To help beginners to single-spa get started quickly we have developed [`create-single-spa`](/docs/create-single-spa/), a utility for generating starter code. This guide will cover creating the root-config and your first single-spa application. Let's get started.
+Чтобы помочь новичкам быстро начать работу с single-spa, мы разработали [`create-single-spa`](/docs/create-single-spa/) утилиту для генерации начального кода. Это руководство будет охватывать создание корневой конфигурации и вашего первого приложения single-spa. Давайте начнем.
 
-> Once you've gotten some of the basics down, refer to these other [single-spa examples](/docs/examples/) to see more advanced usage.
+> Как только вы получите базовые основы, обратитесь к другим [примерам single-spa](/docs/examples/), чтобы увидеть более расширенное использование.
 
-### Create a root config
+### Создание корневой конфигурации
 
-1.  Invoke `create-single-spa` to generate a root-config by running:
+1. Вызовите `create-single-spa`, чтобы сгенерировать корневую конфигурацию, запустив:
 
         npx create-single-spa --moduleType root-config
 
-    Follow the remaining prompts with a few things in mind:
+    Следуйте подсказкам, обратив внимание на несколько вещей, таких как:
 
-    - [single-spa Layout Engine](https://single-spa.js.org/docs/layout-overview) is optional at this time but is recommended if you foresee utilizing [server side rendering](https://single-spa.js.org/docs/ssr-overview)
-    - the `orgName` should be the same across all of your applications as it is used as a namespace to enable [in-browser module resolution](https://single-spa.js.org/docs/recommended-setup/#in-browser-versus-build-time-modules)
+    - [single-spa Layout Engine](https://single-spa.js.org/docs/layout-overview) в настоящее является необязательным, но рекомендуется, если вы планируете использовать [рендеринг на стороне сервера (SSR)](https://single-spa.js.org/docs/ssr-overview)
+    - Поле "orgName" должно быть одинаковым во всех ваших приложениях, поскольку оно используется в качестве пространства имен для включения [разрешения модуля в браузере](https://single-spa.js.org/docs/recommended-setup/#in-browser-versus-build-time-modules)
 
-1.  Once created, navigate into the newly created root-config folder
-1.  Run the `start` script using your preferred package manager
-1.  Navigate to http://localhost:9000/ in your browser
-1.  You now have a working root-config!
+2. После создания перейдите в созданную папку корневой конфигурации
+3. Запустите скрипт `start`, используя ваш любимый менеджер пакетов
+4. Перейдите на http://localhost:9000/ в вашем браузере
+5. Теперь у вас есть работающая корневая конфигурация!
 
-**Be sure to review the comments inside the generated code as well as the information in the Welcome application** even if some of the content is duplicated in this guide.
+**Обязательно просмотрите комментарии внутри сгенерированного кода, а также информацию в Welcome-application**, даже если часть содержимого дублируется в этом руководстве.
 
-> [single-spa-playground.org](http://single-spa-playground.org/playground) is an alternative guide to run an application without needing to create your own root-config.
+> [single-spa-playground.org](http://single-spa-playground.org/playground) - это альтернативное руководство по запуску приложения без необходимости создавать свой собственный root-config.
 
-### Create a single-spa application
+### Создание single-spa приложения
 
-1.  Invoke `create-single-spa` to generate a single-spa application by running:
+1. Вызовите `create-single-spa` чтобы сгенерировать a single-spa приложение, запустив:
 
         npx create-single-spa --moduleType app-parcel
 
-    Follow the remaining prompts to generate a single-spa application using your framework of choice
+    Следуйте подсказкам, чтобы создать single-spa приложение с использованием выбранного вами фреймворка
 
-1.  Once created, navigate into the newly created application folder
-1.  Run the `start` script using your preferred package manager
+2. После создания перейдите во вновь созданную папку приложения
+3. Запустите скрипт `start`, используя ваш любимый менеджер пакетов
 
-### Add shared dependencies
+### Добавление общих зависимостей
 
-[Shared dependencies](https://single-spa.js.org/docs/recommended-setup/#shared-dependencies) are used to improve performance by sharing a module in the browser through [import maps](https://single-spa.js.org/docs/recommended-setup/#import-maps) declared in the root-config. Adding these at this point is _conditionally optional_, depending on if the generated application expects any shared dependencies.
+[Общие зависимости](https://single-spa.js.org/docs/recommended-setup/#shared-dependencies) используются для повышения производительности путем совместного использования модуля в браузере через [карты импорта](https://single-spa.js.org/docs/recommended-setup/#import-maps) объявленного в корневой конфигурации. Добавление их на данном этапе является _условно опциональным_, в зависимости от того, ожидает ли сгенерированное приложение каких-либо общих зависимостей.
 
-For example, if using React the generated Webpack config already expects `React` and `ReactDOM` to be shared dependencies, so you must add these to the import map. Vue, Angular, and Svelte don't require shared dependencies at this time.
+Например, если вы используете `React`, то сгенерированная конфигурация Webpack уже ожидает, что `React` и `ReactDOM` будут общими зависимостями, поэтому вы должны добавить их в карту импорта. Vue, Angular и Svelte в настоящее время не требуют общих зависимостей.
 
 ```json
 "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
 "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js"
 ```
 
-As your architecture matures, you may add more shared dependencies in the future so don't stress about leveraging these perfectly at first.
+По мере того как ваша архитектура развивается, вы можете добавить больше общих зависимостей в будущем, так что не беспокойтесь о том, чтобы идеально использовать их поначалу.
 
-### Register the application
+### Регистрация приложения
 
-1. Return to the root-config and add your application to the import map in `src/index.ejs`
+1. Вернитесь в корневую конфигурацию и добавьте свое приложение в карту импорта в `src/index.ejs`
 
-   <small>The application's package.json name field is recommended</small>
+<small>рекомендуется использовать поле name из package.json приложения</small>
 
-1. Register as a single-spa application
+1. Зарегистрируйтесь в качестве single-spa
 
-   if **not** using single-spa Layout Engine
+если **не** используется single-spa Layout Engine
 
-   - Open `src/root-config.js`
-   - Remove the code for registering `@single-spa/welcome` as an application
-   - Uncomment the sample `registerApplication` code and update it with the module name of your application
+- Откройте `src/root-config.js`
+- Удалите код для регистрации `@single-spa/welcome` в качестве приложения
+- Раскомментируйте пример кода `registerApplication` и замените его именем модуля вашего приложения
 
-   if using single-spa Layout Engine
+если используется single-spa Layout Engine
 
-   - Remove the existing `<application name="@single-spa/welcome"></application>` element
-   - Add your own `<application name=""></application>` element using the `name` the module name used in the import map from the previous ste
+- Удалите существующий `<application name="@single-spa/welcome"></application>` элемент
+- Добавьте свой собственный элемент `<application name=""></application>`, используя `name` имя модуля, используемое в карте импорта из предыдущего шага
 
-Thats it! Your first single-spa application should now be running in your root-config.
+Вот и все! Ваше первое single-spa приложение теперь должно быть запущено в вашей корневой конфигурации.
 
 ---
 
 ## API
 
-Read more at [single-spa API](api.md) and [application api](building-applications.md#application-lifecycle).
+Подробнее читайте на [single-spa API](api.md) и [API приложения](building-applications.md#application-lifecycle).
 
-## Contributing
+## Участие в развитии
 
-The main purpose of this repository is to continue to evolve single-spa, making it better and easier to use. Development of single-spa, and the [single-spa ecosystem](ecosystem.md) happens in the open on GitHub, and we are grateful to the community for contributing bugfixes and improvements. Read below to learn how you can take part in improving single-spa.
+Основная цель этого репозитория - продолжать развивать single-spa, делая его лучше и проще в использовании. Развитие single-spa и [single-spa экосистемы](ecosystem.md) происходит в открытом доступе на GitHub, и мы благодарны сообществу за внесение исправлений и улучшений. Читайте ниже, чтобы узнать, как вы можете принять участие в улучшении single-spa.
 
-### [Code of Conduct](CODE_OF_CONDUCT.md)
+### [Кодекс поведения](CODE_OF_CONDUCT.md)
 
-single-spa has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+Single-spa приняла Кодекс поведения, который мы ожидаем от участников проекта. Пожалуйста, прочтите [полный текст](CODE_OF_CONDUCT.md) чтобы Вы могли понять, какие действия будут и не будут терпимы.
 
 ### [Contributing Guide](contributing-overview.md)
 
-Read our [contributing guide](/docs/contributing-overview/) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to single-spa.
+Прочтите наш [contributing guide](/docs/contributing-overview/), чтобы узнать о процессе разработки, как предложить исправления и улучшения, как собрать и протестировать изменения в single-spa.
 
-## Who's Using This?
+## Кто этим пользуется?
 
-See [user showcase](/users).
+См. раздел [пользовательских примеров](/users).
 
-Is your company or project using single-spa? Let us know by submitting a PR to [this section](https://github.com/single-spa/single-spa.js.org/blob/master/website/src/data/users.js)!
+Ваша компания или проект, использует single-spa? Дайте нам знать, отправив PR в [этот раздел](https://github.com/single-spa/single-spa.js.org/blob/master/website/src/data/users.js)!
