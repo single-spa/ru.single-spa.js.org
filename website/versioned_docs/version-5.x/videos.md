@@ -8,7 +8,7 @@ sidebar_label: Видео
 
 Существует множество видеоуроков как от основной команды single-spa, так и от других членов сообщества.
 
-## От основной команды
+## От ядра команды
 
 [Плейлист на Youtube](https://www.youtube.com/playlist?list=PLLUD8RtHvsAOhtHnyGx57EYXoaNsxGrTU) / [Bilibili](https://space.bilibili.com/495254378)
 

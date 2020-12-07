@@ -10,4 +10,4 @@ sidebar_label: Playground
 
 [Github проект](https://github.com/single-spa/single-spa-playground)
 
-Single-spa playground это интерактивное руководство, которое позволяет вам тестировать ваш код браузере в реальном времени, чтобы проверить, как он может работать с single-spa.
+Single-spa playground это интерактивное руководство, которое позволяет вам тестировать ваш код браузере в реальном времени, чтобы проверить интеграцию с single-spa.
