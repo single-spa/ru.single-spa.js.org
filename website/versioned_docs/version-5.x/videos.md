@@ -1,19 +1,19 @@
 ---
 id: videos
-title: Video Tutorials
-sidebar_label: Videos
+title: Видео-руководства
+sidebar_label: Видео
 ---
 
-# Video Tutorials
+# Видео-руководства
 
-A variety of video tutorials exist from both the single-spa core team and other community members.
+Существует множество видеоуроков как от основной команды single-spa, так и от других членов сообщества.
 
-## From the Core Team
+## От ядра команды
 
-[Youtube Playlist](https://www.youtube.com/playlist?list=PLLUD8RtHvsAOhtHnyGx57EYXoaNsxGrTU) / [Bilibili](https://space.bilibili.com/495254378)
+[Плейлист на Youtube](https://www.youtube.com/playlist?list=PLLUD8RtHvsAOhtHnyGx57EYXoaNsxGrTU) / [Bilibili](https://space.bilibili.com/495254378)
 
-## From the Community
+## От сообщества
 
-Feel free to add your tutorial videos to this list!
+Не стесняйтесь, добавляйте свои видео-руководства в данный список!
 
-- [Module Federation and single-spa](https://www.youtube.com/watch?v=wxnwPLLIJCY)
+- [Объединение модулей и single-spa](https://www.youtube.com/watch?v=wxnwPLLIJCY)
