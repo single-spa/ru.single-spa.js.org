@@ -4,9 +4,9 @@ title: create-single-spa
 sidebar_label: create-single-spa
 ---
 
-Single-spa предлагает CLI для тех, кто предпочитает автоматически генерируемые и управляемые конфигурации для webpack, babel, jest и т.д. Вы не обязаны использовать CLI, чтобы пользоваться single-spa.
+Single-spa предлагает утилиту командной строки (CLI) для тех, кто предпочитает автогенерацию и управление конфигурациями webpack, babel, jest и т.д. Использование CLI для работы с single-spa необязательно.
 
-CLI называется `create-single-spa` ([ссылка на Github](https://github.com/single-spa/create-single-spa/)). Он в первую очередь предназначен для создания новых проектов, но также может быть полезен для миграции существующих проектов (особенно миграции CRA или проектов без фреймворков).
+Утилита командной строки называется `create-single-spa` ([ссылка на Github](https://github.com/single-spa/create-single-spa/)). Она в первую очередь предназначена для создания новых проектов, но также может быть полезна для миграции существующих проектов (особенно миграции CRA или проектов без фреймворков).
 
 ## Установка и использование
 
@@ -122,7 +122,7 @@ npm install --save-dev webpack-config-single-spa webpack-merge
 
 # или
 yarn add --dev webpack-config-single-spa webpack-merge
-``` 
+```
 
 ### Использование
 
@@ -288,9 +288,9 @@ module.exports = (webpackConfigEnv, argv) => {
 
 ## single-spa-web-server-utils
 
-Пакет `single-spar-web-server-utils` представляет собой набор функций, которые помогают при реализации веб-сервера для index.html файла. Этот пакет можно использовать для встроенного import maps в HTML, что помогает повысить производительность вашего приложения. Кроме того, он может быть использован для изменения import map браузера так, что он подходит для использования в NodeJS для динамической загрузки модулей и сервера для рендеринга ([Динамическая загрузка модулей](/docs/ssr-overview#a-module-loading) и [Cервер для рендеринга](https://single-spa.js.org/docs/ssr-overview#intro-to-ssr))).
+Пакет `single-spa-web-server-utils` представляет собой набор функций, которые помогают при реализации веб-сервера для index.html файла. Этот пакет можно использовать для встроенного import maps в HTML, что помогает повысить производительность вашего приложения. Кроме того, он может быть использован для изменения import map браузера так, что он подходит для использования в NodeJS для динамической загрузки модулей и серверного рендеринга ([Динамическая загрузка модулей](/docs/ssr-overview#a-module-loading) и [Серверный рендеринг](https://single-spa.js.org/docs/ssr-overview#intro-to-ssr))).
 
-Утилиты веб-сервера запрашивают import map из URL и генерируют `browserImportMap` и `nodeImportMap` из ответа.
+Утилиты веб-сервера периодически запрашивают import map из URL и генерируют `browserImportMap` и `nodeImportMap` из ответа.
 
 ### Установка
 
@@ -317,10 +317,11 @@ const htmlTemplate = ejs.compile(fs.readFileSync(path.resolve(process.cwd(), 'vi
 http.createServer((req, res) => {
   getImportMaps({
     // Обязательно
-    // URL на котором сервер
+    // URL на котором расположен сервер
     url: 'https://my-cdn.com/live.importmap',
 
-    // Опционально - по-умолчанию 30000 мс ожидания, когда спрашивается import map
+    // Опционально - по-умолчанию 30000
+    // Задержка опроса сервером import map в миллисекундах
     pollInterval: 30000,
 
     // Опционально - по-умолчанию false
@@ -330,7 +331,7 @@ http.createServer((req, res) => {
     allowOverrides: true,
 
     // Опционально - необходимо только тогда, когда allowOverrides true
-    // IncomingMessage от http-сервера. Это используется, чтобы собрать cookies для import-map-overrides
+    // Входящее сообщение от http-сервера. Используется, чтобы собрать cookies для import-map-overrides
     req,
 
     // Опционально
