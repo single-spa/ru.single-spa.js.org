@@ -34,7 +34,7 @@ is via [webpack externals](https://webpack.js.org/configuration/externals/#root)
 Here are our recommendations:
 
 1. Each single-spa application should be an in-browser Javascript module.
-2. Large shared dependencies (ie, the react, vue, or angular libraries) should each be in-browser modules.
+2. Each large shared-dependency (ie, the react, vue, or angular libraries) should also be an in-browser module.
 3. Everything else should be a build-time module.
 
 ## Import Maps
@@ -62,7 +62,7 @@ to make import maps work.
 
 [Module Federation](https://dev.to/marais/webpack-5-and-module-federation-4j1i) is a webpack-specific technique for sharing [build-time modules](#in-browser-versus-build-time-modules). It involves each microfrontend bundling all of its dependencies, even the shared ones. This means that there are multiple copies of each shared dependency - one per microfrontend. In the browser, the first copy of the shared dependency will be downloaded, but subsequent microfrontends will reuse that shared dependency without downloading their copy of it.
 
-Note that Module Federation is a new feature (at the time of this writing) and requires that you use webpack@>=5 (currently in beta). It is still an evolving technology.
+Note that Module Federation is a new feature (at the time of this writing) and requires that you use webpack@>=5. It is still an evolving technology.
 
 single-spa is a way of structuring your routes for microfrontends. Module Federation is a performance technique for microfrontends. They complement each other well and can be used together. Here is a [YouTube video](https://www.youtube.com/watch?v=wxnwPLLIJCY) by a community member that talks about using single-spa and module federation together.
 
@@ -112,8 +112,9 @@ To accomplish local development of only one microfrontend at a time, we can cust
 
 A tool called [import-map-overrides](https://github.com/joeldenning/import-map-overrides) exists to customize your import map through an in-browser UI. This tool will automatically let you toggle one or more microfrontends between your localhost and the deployed version.
 
-Additionally, you have the choice of running your single-spa root config locally, or using the single-spa config that is running on a deployed environment. The single-spa core team finds it easiest to develop on deployed environments (perhaps an "integration", "development", or "staging" environment that is running within your organization) so that you do you not have to constantly run your single-spa root config.
+Alternatively, you can use [standalone-single-spa-webpack-plugin](https://github.com/single-spa/standalone-single-spa-webpack-plugin), which allows you to develop each application in standalone mode. Another alternative is to always run the single-spa root config locally, in addition to whichever microfrontends you're developing.
 
+The single-spa core team recommends development on deployed environments via import-map-overrides, as we find that to be the best developer experience, since it allows you to only start one project at a time while also ensuring there's no difference between the local environment and fully-integrated deployed environment. However, there are cases when running the root config locally or using standalone-single-spa-webpack-plugin can be useful.
 ## Build tools (Webpack / Rollup)
 
 Tutorial video: [Youtube](https://www.youtube.com/watch?v=I6COIg-2lyM&list=PLLUD8RtHvsAOhtHnyGx57EYXoaNsxGrTU&index=9) / [Bilibili](https://www.bilibili.com/video/av84104639/)
@@ -248,6 +249,8 @@ To make the shared dependencies available as in-browser modules, they must be pr
 
 Not all libraries publish their code in a suitable format for SystemJS consumption. In those cases, check https://github.com/esm-bundle for a SystemJS version of those libraries. Alternatively, you may use [SystemJS extras](https://github.com/systemjs/systemjs#extras) to support UMD bundles, which are often available.
 
+Another option for finding a suitable version of a library for your import map is to use the JSPM CDN, which provides precompiled SystemJS versions of every package on npm (example: https://system-cdn.jspm.io/npm:@material-ui/core@4.11.3/index.js). See https://jspm.org/docs/cdn for more info. You can generate an import map for your shared dependencies at https://generator.jspm.io/.
+
 An example of a shared-dependencies repo, along with a functioning CI process for it, can be found at https://github.com/polyglot-microfrontends/shared-dependencies.
 
 ### Sharing with Module Federation
@@ -352,4 +355,4 @@ Under the rare circumstances where you do need to share UI state between single-
 
 The single-spa core team cautions against using redux, mobx, and other global state management libraries. However, if you'd like to use a state management library, we recommend keeping the state management tool specific to a single repository / microfrontend instead of a single store for all of your microfrontends. The reason is that microfrontends are not truly decoupled or framework agnostic if they all must use a global store. You cannot independently deploy a microfrontend if it relies on the global store's state to be a specific shape or have specific actions fired by other microfrontends - to do so you'd have to think really hard about whether your changes to the global store are backwards and forwards compatible with all other microfrontends. Additionally, managing global state during route transitions is hard enough without the complexity of multiple microfrontends contributing to and consuming the global state.
 
-Instead of a global store, the single-spa core team recommends using local component state for your components, or a store for each of your microfrontends. See the above section "Inter-app communication" for more related information.
+Instead of a global store, the single-spa core team recommends using local component state for your components, or a store for each of your microfrontends. See the above section "[Inter-app communication](#inter-app-communication)" for more related information.
