@@ -25,4 +25,16 @@ export default [
     documentationUrl: "https://es.single-spa.js.org",
     githubUrl: "https://github.com/single-spa/es.single-spa.js.org"
   },
+  {
+    languageName: "Русский",
+    languageNameEnglish: "Russian",
+    documentationUrl: "https://ru.single-spa.js.org",
+    githubUrl: "https://github.com/single-spa/ru.single-spa.js.org"
+  },
+  {
+    languageName: "Bahasa Indonesia",
+    languageNameEnglish: "Indonesian",
+    documentationUrl: "https://id.single-spa.js.org",
+    githubUrl: "https://github.com/single-spa/id.single-spa.js.org"
+  },
 ]
