@@ -4,9 +4,13 @@ title: single-spa-playground
 sidebar_label: Playground
 ---
 
+<<<<<<< HEAD
 # Single-spa Playground
 
 [Playground сайт](http://single-spa-playground.org)
+=======
+[Playground website](http://single-spa-playground.org)
+>>>>>>> e9fc16a714204253ce87305e05e2fa85f70a76f6
 
 [Github проект](https://github.com/single-spa/single-spa-playground)
 
