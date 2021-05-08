@@ -33,7 +33,11 @@ npm init single-spa
 # или
 npx create-single-spa
 
+<<<<<<< HEAD
 # или
+=======
+# or
+>>>>>>> 9012a08f47e9cac901a3cbb8eee85dc62949d69f
 yarn create single-spa
 ```
 
@@ -91,7 +95,11 @@ create-single-spa --framework angular
 
 create-single-spa спрашивает вас, хотите ли вы создать single-spa приложение, служебный модуль или корневую конфигурацию. Все три типа модулей предполагают, что вы используете [рекомендуемую настройку](/docs/recommended-setup).
 
+<<<<<<< HEAD
 Если вы выберете, что хотите создать single-spa приложение, вам будет предложено выбрать фреймворк. React создается с предварительно сделанными настройками babel + webpack + jest. Angular создается с Angular CLI и [single-spa-angular](/docs/ecosystem-angular#angular-cli). Vue создается с Vue CLI и [vue-cli-plugin-single-spa](/docs/ecosystem-vue#vue-cli).
+=======
+If you select that you'd like to create a single-spa application, you will be prompted for which framework you'd like to choose. React is implemented with premade configurations for babel + webpack + jest. Angular is implemented with Angular CLI and [single-spa-angular](/docs/ecosystem-angular). Vue is implemented with Vue CLI and [vue-cli-plugin-single-spa](/docs/ecosystem-vue#vue-cli).
+>>>>>>> 9012a08f47e9cac901a3cbb8eee85dc62949d69f
 
 # NPM packages
 
@@ -138,17 +146,40 @@ module.exports = (webpackConfigEnv, argv) => {
     projectName: 'name-of-project',
     // Смотреть https://webpack.js.org/guides/environment-variables/#root для объяснения webpackConfigEnv
     webpackConfigEnv,
+<<<<<<< HEAD
     // Команды CLI в скрипте package.json, который вызвал эту сборку
     argv,
     // Опционально
     // Будут ли имена пакетов, начинающиеся с @имя-вашей-компании рассматриваться как внешние объекты иои нет. По умолчанию выставлено true
+=======
+    // The CLI commands in the package.json script that triggered this build
+    argv,
+    // optional
+    // This changes whether package names that start with @your-org-name are
+    // treated as webpack externals or not. Defaults to true
+>>>>>>> 9012a08f47e9cac901a3cbb8eee85dc62949d69f
     orgPackagesAsExternal: true,
-  })
+
+    // optional, defaults to 1
+    // This is the rootDirectoryLevel that is passed to https://github.com/joeldenning/systemjs-webpack-interop
+    rootDirectoryLevel: 1,
+    
+    // optional, defaults to false
+    // Disable html-webpack-plugin (and standalone-single-spa-webpack-plugin) entirely
+    // This is intended for root configs, but can be used in other cases, too
+    disableHtmlGeneration: false
+  });
 
   return webpackMerge.smart(defaultConfig, {
+<<<<<<< HEAD
     // Если вы хотите модифицировать webpack конфиг, настройки добавлять к этому объекту
   })
 }
+=======
+    // modify the webpack config however you'd like to by adding to this object
+  });
+};
+>>>>>>> 9012a08f47e9cac901a3cbb8eee85dc62949d69f
 ```
 
 ## webpack-config-single-spa-react
@@ -180,17 +211,35 @@ module.exports = (webpackConfigEnv, argv) => {
     projectName: 'name-of-project',
     // Смотреть https://webpack.js.org/guides/environment-variables/#root для объяснения webpackConfigEnv
     webpackConfigEnv,
+<<<<<<< HEAD
     // Команды CLI в скрипте package.json, который вызвал эту сборку
     argv,
     // Опционально
     // Будут ли имена пакетов, начинающиеся с @имя-вашей-компании рассматриваться как внешние объекты иои нет. По-умолчанию выставлено true
+=======
+    // The CLI commands in the package.json script that triggered this build
+    argv,
+    // optional
+    // This changes whether package names that start with @your-org-name are
+    // treated as webpack externals or not. Defaults to true
+>>>>>>> 9012a08f47e9cac901a3cbb8eee85dc62949d69f
     orgPackagesAsExternal: true,
-  })
+
+    // optional, defaults to 1
+    // This is the rootDirectoryLevel that is passed to https://github.com/joeldenning/systemjs-webpack-interop
+    rootDirectoryLevel: 1,
+  });
 
   return webpackMerge.smart(defaultConfig, {
+<<<<<<< HEAD
     // Если вы хотите модифицировать webpack конфиг, настройки добавлять к этому объекту
   })
 }
+=======
+    // modify the webpack config however you'd like to by adding to this object
+  });
+};
+>>>>>>> 9012a08f47e9cac901a3cbb8eee85dc62949d69f
 ```
 
 ## webpack-config-single-spa-ts
@@ -224,20 +273,34 @@ module.exports = (webpackConfigEnv, argv) => {
     webpackConfigEnv,
     // Команды CLI в скрипте package.json, который вызвал эту сборку
     argv,
-  })
+  });
 
   return webpackMerge.smart(defaultConfig, {
+<<<<<<< HEAD
     // Если вы хотите модифицировать webpack конфиг, настройки добавлять к этому объекту
   })
 }
+=======
+    // modify the webpack config however you'd like to by adding to this object
+  });
+};
+>>>>>>> 9012a08f47e9cac901a3cbb8eee85dc62949d69f
 ```
 
 ```js
 const singleSpaTs = require('webpack-config-single-spa-ts');
 
+<<<<<<< HEAD
 // Алтерьнативно, вы можете модифицировать webpack конфиг напрямую
 const myOtherWebpackConfig = {/* ... */}
 const finalConfig = singleSpaDefaults.modifyConfig(myOtherWebpackConfig)
+=======
+// Alternatively, you may modify a webpack config directly
+const myOtherWebpackConfig = {
+  /* ... */
+};
+const finalConfig = singleSpaDefaults.modifyConfig(myOtherWebpackConfig);
+>>>>>>> 9012a08f47e9cac901a3cbb8eee85dc62949d69f
 ```
 
 ## webpack-config-single-spa-react-ts
@@ -266,6 +329,7 @@ module.exports = (webpackConfigEnv, argv) => {
     // Имя организации, для которой написано приложение
     orgName: 'name-of-company',
 
+<<<<<<< HEAD
     // Имя текущего проекта. Это обычно совпадает с именем git репозитория.
     projectName: 'name-of-project',
 
@@ -277,7 +341,34 @@ module.exports = (webpackConfigEnv, argv) => {
     orgPackagesAsExternal: true,
 
     // Команды CLI в скрипте package.json, который вызвал эту сборку
+=======
+    // The name of the current project. This usually matches the git repo's name
+    projectName: 'name-of-project',
+
+    // optional
+    // This changes whether package names that start with @your-org-name are
+    // treated as webpack externals or not. Defaults to true
+    orgPackagesAsExternal: true,
+
+    // See https://webpack.js.org/guides/environment-variables/#root for explanation of webpackConfigEnv
+    webpackConfigEnv,
+
+    // optional
+    // This changes whether package names that start with @your-org-name are
+    // treated as webpack externals or not. Defaults to true
+    orgPackagesAsExternal: true,
+
+    // The CLI commands in the package.json script that triggered this build
+>>>>>>> 9012a08f47e9cac901a3cbb8eee85dc62949d69f
     argv,
+
+    // optional, defaults to 1
+    // This is the rootDirectoryLevel that is passed to https://github.com/joeldenning/systemjs-webpack-interop
+    rootDirectoryLevel: 1
+
+    // optional, defaults to false.
+    // When true, this removes html-webpack-plugin and standalone-single-spa-webpack-plugin
+    disableHtmlGeneration: false
   })
 
   return webpackMerge.smart(defaultConfig, {
@@ -312,7 +403,9 @@ const ejs = require('ejs');
 const fs = require('fs');
 const path = require('path');
 
-const htmlTemplate = ejs.compile(fs.readFileSync(path.resolve(process.cwd(), 'views/index.html'), 'utf-8'));
+const htmlTemplate = ejs.compile(
+  fs.readFileSync(path.resolve(process.cwd(), 'views/index.html'), 'utf-8'),
+);
 
 http.createServer((req, res) => {
   getImportMaps({
@@ -342,13 +435,19 @@ http.createServer((req, res) => {
     // Ключи, для которых вы возвращаете `true`, сохраняются в nodeImportMap.
     nodeKeyFilter(key) {
       return true;
-    }
-  })
-  .then(({browserImportMap, nodeImportMap}) => {
+    },
+  }).then(({ browserImportMap, nodeImportMap }) => {
     console.log(browserImportMap, nodeImportMap);
 
+<<<<<<< HEAD
     // Пример того, как встроить import map браузера
     const htmlWithInlinedImportMap = htmlTemplate({importMap: browserImportMap});
+=======
+    // Example of how to inline a browser import map
+    const htmlWithInlinedImportMap = htmlTemplate({
+      importMap: browserImportMap,
+    });
+>>>>>>> 9012a08f47e9cac901a3cbb8eee85dc62949d69f
     res.setResponseHeader('Content-Type', 'text/html');
     res.status(200).send(htmlWithInlinedImportMap);
 
@@ -358,4 +457,62 @@ http.createServer((req, res) => {
     import('module-in-import-map');
   });
 });
+```
+
+## Customizing Webpack
+
+The create-single-spa CLI internally uses [webpack-merge](https://github.com/survivejs/webpack-merge) to merge together webpack configs. Additionally, the CLI generates a `webpack.config.js` file in each project where you can customize the webpack config further via `webpack-merge`.
+
+### Merging rules
+
+When merging [webpack rules](https://webpack.js.org/configuration/module/#modulerules), use webpack-merge's [`mergeWithRules`](https://github.com/survivejs/webpack-merge#mergewithrules) function to avoid duplicate rules.
+
+[Example](https://github.com/react-microfrontends/styleguide/blob/504c8516e30274fc0e3221a719d5355b14af9500/webpack.config.js#L11)
+
+### Loaders
+
+`webpack-config-single-spa` and its variants often depend on webpack [loaders](https://webpack.js.org/loaders/#root). Because webpack loaders are loaded via file path, it's possible to accidentally have duplicate copies of the same loader, if the same loader is also installed in both webpack-config-single-spa and in your project. This can result in errors.
+
+To avoid duplicate copies of loaders, first check whether it is already installed by wepback-config-single-spa before adding it to your own project ([see package.json](https://unpkg.com/webpack-config-single-spa@2.0.0/package.json)). If the loader is listed there, then **do not install it into your project, too**. If you already have the loader installed in your project, uninstall it.
+
+When referencing a loader that is installed as a dependency of webpack-config-single-spa, use [require.resolve](https://nodejs.org/api/modules.html#modules_require_resolve_request_options) to ensure the loader is imported from the correct path:
+
+```js
+const { mergeWithRules } = require('webpack-merge');
+const singleSpaDefaults = require('webpack-config-single-spa');
+
+module.exports = (webpackConfigEnv) => {
+  const defaultConfig = singleSpaDefaults({
+    orgName: "react-mf",
+    projectName: "styleguide",
+    webpackConfigEnv,
+  });
+  
+  return mergeWithRules({
+    module: {
+      rules: {
+        test: "match",
+        use: "replace",
+      },
+    },
+  })(defaultConfig, {
+    module: {
+      rules: [
+        {
+          test: /\.css$/i,
+          use: [
+            // Use require.resolve to ensure the correct loader is used
+            require.resolve("style-loader", {
+              paths: [require.resolve("webpack-config-single-spa")],
+            }),
+            require.resolve("css-loader", {
+              paths: [require.resolve("webpack-config-single-spa")],
+            }),
+            "postcss-loader",
+          ],
+        },
+      ],
+    },
+  })
+}
 ```
