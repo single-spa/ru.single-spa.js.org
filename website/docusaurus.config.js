@@ -7,7 +7,11 @@ const versions = require('./versions.json');
 module.exports = {
   title: 'single-spa',
   tagline: 'A javascript router for front-end microservices',
+<<<<<<< HEAD
   url: 'https://single-spa.github.io/ru.single-spa.js.org',
+=======
+  url: 'https://single-spa.js.org',
+>>>>>>> 5170954fcf9d86bccf9f40542f0d8a2a96751a68
   baseUrl: '/',
   projectName: 'single-spa',
   favicon: 'img/logo-blue-favicon.ico',
@@ -58,6 +62,10 @@ module.exports = {
           title: 'Community',
           items: [
             {
+              label: 'Sponsors',
+              to: 'sponsors/',
+            },
+            {
               label: 'User Showcase',
               to: 'users/',
             },
@@ -68,7 +76,7 @@ module.exports = {
             {
               label: 'Chat in Slack',
               href:
-                'https://join.slack.com/t/single-spa/shared_invite/zt-j4c38g92-JmV7O~35dkN1CnaBkK7NTw',
+                'https://join.slack.com/t/single-spa/shared_invite/zt-mafdeybq-0v1aIm3KKaqyVCT2xeny3Q',
             },
             {
               label: 'Twitter',
@@ -102,7 +110,7 @@ module.exports = {
         alt: 'single-spa Logo',
         src: 'img/logo-white-bgblue.svg',
       },
-      links: [
+      items: [
         {
           to: 'versions',
           label: versions[0],
@@ -119,7 +127,7 @@ module.exports = {
         { to: 'blog/', label: 'Blog' },
         { href: 'https://opencollective.com/single-spa', label: 'Donate' },
         { href: 'https://github.com/single-spa/single-spa', label: 'GitHub' },
-        { to: 'languages', label: '简Жहि Languages'},
+        { to: 'languages', label: '简Жहि Languages' },
       ],
     },
     googleAnalytics: {
