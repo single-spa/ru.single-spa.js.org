@@ -7,10 +7,14 @@ const versions = require('./versions.json');
 module.exports = {
   title: 'single-spa',
   tagline: 'A javascript router for front-end microservices',
+<<<<<<< HEAD
   url: 'https://single-spa.github.io/ru.single-spa.js.org',
+=======
+  url: 'https://single-spa.js.org',
+>>>>>>> 92f095b0abf85c27fec1c664f57d3450296baa47
   baseUrl: '/',
   projectName: 'single-spa',
-  favicon: 'img/logo-blue-favicon.ico',
+  favicon: 'img/single-spa-mark-magenta.svg',
   organizationName: 'single-spa',
   customFields: {
     repoUrl,
@@ -32,11 +36,24 @@ module.exports = {
     footer: {
       logo: {
         alt: 'single-spa',
-        src: 'img/logo-white-bgblue.svg',
+        src: 'img/single-spa-logo-magenta.svg',
       },
       copyright: `Copyright © ${new Date().getFullYear()} single-spa.`,
       style: 'dark',
       links: [
+        {
+          title: "Courses",
+          items: [
+            {
+              label: "Single-Spa Workshop",
+              to: "https://single-spa-workshop.com"
+            },
+            {
+              label: "Microfrontend Fundamentals",
+              to: "https://single-spa-workshop.com"
+            },
+          ]
+        },
         {
           title: 'Docs',
           items: [
@@ -58,6 +75,10 @@ module.exports = {
           title: 'Community',
           items: [
             {
+              label: 'Sponsors',
+              to: 'sponsors/',
+            },
+            {
               label: 'User Showcase',
               to: 'users/',
             },
@@ -68,7 +89,7 @@ module.exports = {
             {
               label: 'Chat in Slack',
               href:
-                'https://join.slack.com/t/single-spa/shared_invite/zt-j4c38g92-JmV7O~35dkN1CnaBkK7NTw',
+                'https://join.slack.com/t/single-spa/shared_invite/zt-mafdeybq-0v1aIm3KKaqyVCT2xeny3Q',
             },
             {
               label: 'Twitter',
@@ -100,9 +121,9 @@ module.exports = {
       title: 'single-spa',
       logo: {
         alt: 'single-spa Logo',
-        src: 'img/logo-white-bgblue.svg',
+        src: 'img/single-spa-mark-magenta.svg',
       },
-      links: [
+      items: [
         {
           to: 'versions',
           label: versions[0],
@@ -115,11 +136,12 @@ module.exports = {
         },
         { to: 'docs/faq/', label: 'FAQ' },
         { to: 'docs/', label: 'Docs' },
+        { to: 'https://single-spa-workshop.com', label: 'Courses' },
         { to: 'help/', label: 'Help' },
         { to: 'blog/', label: 'Blog' },
         { href: 'https://opencollective.com/single-spa', label: 'Donate' },
         { href: 'https://github.com/single-spa/single-spa', label: 'GitHub' },
-        { to: 'languages', label: '简Жहि Languages'},
+        { to: 'languages', label: '简Жहि Languages' },
       ],
     },
     googleAnalytics: {
