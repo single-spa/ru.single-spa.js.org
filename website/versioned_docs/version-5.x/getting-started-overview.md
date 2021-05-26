@@ -6,7 +6,11 @@ sidebar_label: Обзор single-spa
 
 ## JavaScript микрофронтенды
 
+<<<<<<< HEAD
 [Присоединяйтесь к чату в Slack](https://join.slack.com/t/single-spa/shared_invite/zt-j4c38g92-JmV7O~35dkN1CnaBkK7NTw)
+=======
+[Join the chat on Slack](https://join.slack.com/t/single-spa/shared_invite/zt-mafdeybq-0v1aIm3KKaqyVCT2xeny3Q)
+>>>>>>> 20ec216cf6c40385be1af81b6b68b3d02694f3fd
 
 single-spa это фреймворк, который объединяет несколько Javascript микрофронтендов в одно фронтенд приложение. Архитектура вашего приложения с использованием single-spa имеет множество преимуществ, таких как:
 - [Использование нескольких фреймворков](ecosystem.md#help-for-frameworks) на одной странице [бех обновления страницы](building-applications.md)
@@ -73,7 +77,13 @@ Single-spa работает в Chrome, Firefox, Safari, Edge, и IE11 (с пол
 
 Чтобы помочь новичкам быстро начать работу с single-spa, мы разработали [`create-single-spa`](/docs/create-single-spa/) утилиту для генерации начального кода. Это руководство будет охватывать создание корневой конфигурации и вашего первого приложения single-spa. Давайте начнем.
 
+<<<<<<< HEAD
 > Как только вы получите базовые основы, обратитесь к другим [примерам single-spa](/docs/examples/), чтобы увидеть более расширенное использование.
+=======
+:::note
+Once you've gotten some of the basics down, refer to these other [single-spa examples](/docs/examples/) to see more advanced usage.
+:::
+>>>>>>> 20ec216cf6c40385be1af81b6b68b3d02694f3fd
 
 ### Создание корневой конфигурации
 
@@ -93,7 +103,13 @@ Single-spa работает в Chrome, Firefox, Safari, Edge, и IE11 (с пол
 
 **Обязательно просмотрите комментарии внутри сгенерированного кода, а также информацию в Welcome-application**, даже если часть содержимого дублируется в этом руководстве.
 
+<<<<<<< HEAD
 > [single-spa-playground.org](http://single-spa-playground.org/playground) - это альтернативное руководство по запуску приложения без необходимости создавать свой собственный root-config.
+=======
+:::tip
+[single-spa-playground.org](http://single-spa-playground.org/playground) is an alternative guide to run an application without needing to create your own root-config.
+:::
+>>>>>>> 20ec216cf6c40385be1af81b6b68b3d02694f3fd
 
 ### Создание single-spa приложения
 
@@ -135,8 +151,13 @@ Single-spa работает в Chrome, Firefox, Safari, Edge, и IE11 (с пол
 
 если используется single-spa Layout Engine
 
+<<<<<<< HEAD
 - Удалите существующий `<application name="@single-spa/welcome"></application>` элемент
 - Добавьте свой собственный элемент `<application name=""></application>`, используя `name` имя модуля, используемое в карте импорта из предыдущего шага
+=======
+   - Remove the existing `<application name="@single-spa/welcome"></application>` element
+   - Add your own `<application name=""></application>` element using the `name` the module name used in the import map from the previous step
+>>>>>>> 20ec216cf6c40385be1af81b6b68b3d02694f3fd
 
 Вот и все! Ваше первое single-spa приложение теперь должно быть запущено в вашей корневой конфигурации.
 
