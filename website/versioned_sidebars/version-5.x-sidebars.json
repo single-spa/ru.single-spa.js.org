@@ -25,6 +25,11 @@
       "label": "Руководства",
       "items": [
         {
+          "type": "link",
+          "label": "Official Courses",
+          "href": "https://single-spa-workshop.com"
+        },
+        {
           "type": "doc",
           "id": "version-5.x/single-spa-playground"
         },
@@ -98,6 +103,20 @@
     },
     {
       "type": "category",
+      "label": "Testing",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-5.x/testing/units"
+        },
+        {
+          "type": "doc",
+          "id": "version-5.x/testing/e2e"
+        }
+      ]
+    },
+    {
+      "type": "category",
       "label": "Layout Engine",
       "items": [
         {
@@ -145,6 +164,10 @@
         {
           "type": "doc",
           "id": "version-5.x/ecosystem"
+        },
+        {
+          "type": "doc",
+          "id": "version-5.x/ecosystem-css"
         },
         {
           "type": "doc",
@@ -209,6 +232,10 @@
         {
           "type": "doc",
           "id": "version-5.x/ecosystem-vite"
+        },
+        {
+          "type": "doc",
+          "id": "version-5.x/ecosystem-snowpack"
         }
       ]
     },
