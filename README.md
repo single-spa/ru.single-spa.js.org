@@ -1,5 +1,4 @@
 # single-spa.js.org
-[![CircleCI](https://circleci.com/gh/single-spa/ru.single-spa.js.org.svg?style=svg)](https://circleci.com/gh/single-spa/ru.single-spa.js.org)
 
 This repo contains the source code and documentation powering [ru.single-spa.js.org](https://ru.single-spa.js.org).
 
