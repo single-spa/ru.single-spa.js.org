@@ -9,7 +9,7 @@ sidebar_label: Обзор single-spa
 [Присоединяйтесь к чату в Slack](https://join.slack.com/t/single-spa/shared_invite/zt-j4c38g92-JmV7O~35dkN1CnaBkK7NTw)
 
 single-spa это фреймворк, который объединяет несколько Javascript микрофронтендов в одно фронтенд приложение. Архитектура вашего приложения с использованием single-spa имеет множество преимуществ, таких как:
-- [Использование нескольких фреймворков](ecosystem.md#help-for-frameworks) на одной странице [бех обновления страницы](building-applications.md)
+- [Использование нескольких фреймворков](ecosystem.md#help-for-frameworks) на одной странице [без обновления страницы](building-applications.md)
   ([React](ecosystem-react.md), [AngularJS](ecosystem-angularjs.md), [Angular](ecosystem-angular.md), [Ember](ecosystem-ember.md), или что угодно, что вы используете)
 - Разворачивание ваших микрофронтендов независимо друг от друга
 - Пишите код, используя новый фреймворк, без переписывания существующего приложения
